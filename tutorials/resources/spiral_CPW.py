@@ -19,7 +19,7 @@ import numpy as np
 from math import sin,cos,pi
 
 
-class NSquareSpiral(QComponent):
+class NSpiral(QComponent):
     """A n count square spiral.
 
     Inherits `QComponent` class.
@@ -113,6 +113,8 @@ class NSquareSpiral(QComponent):
 
 
         len = len + 2*(n)*p.gap
+        if p.subtract == True:
+            len += 0.005
         spiral_list.append((spiral_list[-1][0]+len, spiral_list[-1][1]))
         spiral_list = draw.LineString(spiral_list)
 
