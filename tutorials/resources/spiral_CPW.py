@@ -88,15 +88,24 @@ class NSpiral(QComponent):
         # print(turnlist,p.n_turn)
 
         point_value1 = p.radius / 2 + ( p.gap)
-        spiral_list = [(0,0)]
+        
+
+        if p.subtract == True:
+            spiral_list = [(-0.005,0)]
+        else:
+            spiral_list = [(0,0)]
         
 
         for step in range(n):
             len = p.radius + 4*step*(p.gap)-2*p.radi_turns
+
             
             for i in range(4):
                 if i == 0:
-                    spiral_list.append((spiral_list[-1][0]+len,spiral_list[-1][1]))
+                    if step == 0:
+                        spiral_list.append((0+len,0))
+                    else:
+                        spiral_list.append((spiral_list[-1][0]+len,spiral_list[-1][1]))
                 elif i ==1:
                     spiral_list.append((spiral_list[-1][0],spiral_list[-1][1]-len))
                 elif i ==2:
