@@ -19,7 +19,7 @@ import numpy as np
 from math import sin,cos,pi
 
 
-class NSpiral(QComponent):
+class CPW_Spiral(QComponent):
     """A n count square spiral.
 
     Inherits `QComponent` class.
@@ -62,8 +62,7 @@ class NSpiral(QComponent):
                            subtract='False',
                            helper='False',
                            radi_turns = '10um',
-                           n_turn = '3',
-                           short = True)
+                           n_turn = '3')
     """Default drawing options"""
 
     TOOLTIP = """An n count square spiral"""
@@ -123,7 +122,7 @@ class NSpiral(QComponent):
 
 
         len = len + 2*(n)*p.gap
-        if (p.subtract == True) & (p.short == False):
+        if p.subtract == True:
             len += 0.005
         spiral_list.append((spiral_list[-1][0]+len, spiral_list[-1][1]))
         spiral_list = draw.LineString(spiral_list)
