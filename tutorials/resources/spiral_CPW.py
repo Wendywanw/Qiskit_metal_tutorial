@@ -63,7 +63,8 @@ class NSpiral(QComponent):
                            helper='False',
                            radi_turns = '10um',
                            n_turn = '3',
-                           short = True)
+                           short = True,
+                           adjustments = '0um')
     """Default drawing options"""
 
     TOOLTIP = """An n count square spiral"""
@@ -122,7 +123,7 @@ class NSpiral(QComponent):
 
 
 
-        len = len + 2*(n)*p.gap
+        len = len + 2*(n)*p.gap + p.adjustments
         if (p.subtract == True) & (p.short == False):
             len += 0.005
         spiral_list.append((spiral_list[-1][0]+len, spiral_list[-1][1]))
