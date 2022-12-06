@@ -226,7 +226,7 @@ class TransmonPocket_Single(BaseQubit):
         pocket_rise = pc.pocket_rise
         pocket_extent = pc.pocket_extent
 
-        pocket_height = pad_height + p.pad_pocket_distance_top + p.jj_length - p.jj_overlap * 2
+        pocket_height = p.pad_height + p.pad_pocket_distance_top + p.jj_length - p.jj_overlap * 2
         
 
         # Define the geometry
@@ -256,7 +256,7 @@ class TransmonPocket_Single(BaseQubit):
         objects = draw.translate(
             objects,
             loc_W * (p.pad_width) / 2.,
-            loc_H * (pocket_height/2. - p.pad_pocket_distance_top + pc.pad_height + pc.pad_gap))
+            loc_H * (pocket_height/2-pad_height/2 - p.pad_pocket_distance_top + pc.pad_height/2 + pc.pad_gap))
         objects = draw.rotate_position(objects, p.orientation,
                                        [p.pos_x, p.pos_y])
         [connector_pad, connector_wire_path, connector_wire_CON] = objects
